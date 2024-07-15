@@ -10,7 +10,7 @@ public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "consultation_id")
-    private long id;
+    private Long id;
     private LocalDate date;
     private String doctorName;
     private String checkup;
@@ -33,7 +33,7 @@ public class Consultation {
         this.advice = consultation.getAdvice();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

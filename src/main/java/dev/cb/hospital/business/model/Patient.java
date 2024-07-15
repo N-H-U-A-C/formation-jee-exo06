@@ -12,7 +12,7 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "patient_id")
-    private long id;
+    private Long id;
     private String lastName;
     private String firstName;
     private LocalDate birthDate;
@@ -39,7 +39,7 @@ public class Patient {
         this.setConsultations(patient.getConsultations());
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
