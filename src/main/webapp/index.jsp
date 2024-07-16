@@ -2,12 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Hôpital Princeton-Plainsboro | Accueil</title>
+    <%@include file="/WEB-INF/imports/bootstrap.html" %>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%@include file="/WEB-INF/html/header.html"%>>
+<main class="container d-flex justify-content-center">
+    <div>
+        <h1>&#192 propos de nous</h1>
+        <p>Nous sommes dédiés à fournir de meilleurs soins médicaux à nos patients avec compassion et excellence.</p>
+    </div>
+</main>
+<%@include file="/WEB-INF/html/footer.html"%>
 </body>
 </html>
