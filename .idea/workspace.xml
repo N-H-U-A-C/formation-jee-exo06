@@ -11,11 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="59f9efa9-7b30-484e-bf68-3127979b0708" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/business/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/business/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/controller/ConnectionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/controller/ConnectionServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/controller/PatientServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/cb/hospital/controller/PatientServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/patients/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/patients/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +196,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721054811079</updated>
       <workItem from="1721054812103" duration="2000" />
-      <workItem from="1721115385374" duration="17044000" />
+      <workItem from="1721115385374" duration="20976000" />
     </task>
     <servers />
   </component>

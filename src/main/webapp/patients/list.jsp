@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label for="firstName" class="form-label">Prénom :</label>
-                <input type="password" class="form-control" id="firstName" name="firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName">
             </div>
             <div class="mb-3">
                 <label for="phoneNumber" class="form-label">Téléphone :</label>
