@@ -52,6 +52,6 @@ public class PatientServlet extends HttpServlet {
     private void forwardList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Patient> patients = patientService.getAll();
         req.setAttribute("patients", patients);
-        getServletContext().getRequestDispatcher("/patients/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/patients/list.jsp").forward(req, resp);
     }
 }
