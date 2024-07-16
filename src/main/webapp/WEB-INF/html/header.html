@@ -1,7 +1,7 @@
-<header class="container d-flex justify-content-center">
-    <div><h1 class="bg-success text-light">Bienvenue &agrave l'H&#244pital Princeton-Plainsboro</h1></div>
-    <div><nav class="navbar navbar-expand-lg bg-dark">
-        <a class="text-light" href="#">Accueil</a>
-        <a class="text-light" href="#">Liste des Patients</a>
-    </nav></div>
+<header class="container d-flex flex-column p-2">
+    <h1 class="bg-success d-flex justify-content-center align-items-center text-light">Bienvenue &agrave l'H&#244pital Princeton-Plainsboro</h1>
+    <nav class="navbar navbar-expand-lg d-flex justify-content-center align-items-center bg-dark">
+        <a class="p-2 text-light" href="#">Accueil</a>
+        <a class="p-2 text-light" href="${pageContext.request.contextPath}/patient/list">Liste des Patients</a>
+    </nav>
 </header>
