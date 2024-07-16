@@ -15,6 +15,7 @@ public class Patient {
     private Long id;
     private String lastName;
     private String firstName;
+    private String phoneNumber;
     private LocalDate birthDate;
     // TODO picture field
 
@@ -25,9 +26,10 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String lastName, String firstName, LocalDate birthDate, List<Consultation> consultations) {
+    public Patient(String lastName, String firstName, String phoneNumber, LocalDate birthDate, List<Consultation> consultations) {
         this.lastName = lastName;
         this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.consultations = consultations;
     }
@@ -35,6 +37,7 @@ public class Patient {
     public void update(Patient patient) {
         this.setLastName(patient.getLastName());
         this.setFirstName(patient.getFirstName());
+        this.setPhoneNumber(patient.getPhoneNumber());
         this.setBirthDate(patient.getBirthDate());
         this.setConsultations(patient.getConsultations());
     }
@@ -57,6 +60,14 @@ public class Patient {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public LocalDate getBirthDate() {
