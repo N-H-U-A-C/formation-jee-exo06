@@ -18,7 +18,6 @@ public class Patient {
     private String phoneNumber;
     private LocalDate birthDate;
     private Byte[] picture;
-    // TODO picture field
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "patient_id")

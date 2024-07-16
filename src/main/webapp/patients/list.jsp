@@ -30,10 +30,10 @@
                 <label for="birthDate" class="form-label">Téléphone :</label>
                 <input type="date" class="form-control" id="birthDate" name="birthDate">
             </div>
-            <div class="mb-3">
-                <label for="picture" class="form-label">Photo :</label>
-                <input type="file" class="form-control" id="picture" accept="image/*" name="picture">
-            </div>
+<%--            <div class="mb-3">--%>
+<%--                <label for="picture" class="form-label">Photo :</label>--%>
+<%--                <input type="file" class="form-control" id="picture" accept="image/*" name="picture">--%>
+<%--            </div>--%>
             <button type="submit" class="btn btn-primary">Valider</button>
             <button type="reset" class="btn btn-primary">Réinitialiser</button>
         </form>
