@@ -11,8 +11,12 @@
 <%@include file="../WEB-INF/html/header.html" %>
 <main>
     <div class="container d-flex flex-column justify-content-start border-bottom p-2">
+        <%if (session.getAttribute("loggedin") != null && (boolean) session.getAttribute("loggedin")) {%>
+            <p>Félicitations vous êtes connectés (lol)</p>
+        <%} else {%>
         <h2>Ajouter un patient</h2>
-        <a href="${pageContext.request.contextPath}/login" class="btn btn-primary bg-primary">Se connecter</a>
+        <a href="${pageContext.request.contextPath}/login/form" class="btn btn-primary bg-primary">Se connecter</a>
+        <%}%>
     </div>
     <div class="container">
         <h2>Liste des patients :</h2>
