@@ -26,12 +26,11 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String lastName, String firstName, String phoneNumber, LocalDate birthDate, List<Consultation> consultations) {
+    public Patient(String lastName, String firstName, String phoneNumber, LocalDate birthDate) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
-        this.consultations = consultations;
     }
 
     public void update(Patient patient) {

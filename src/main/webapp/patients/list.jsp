@@ -11,10 +11,29 @@
 <%@include file="../WEB-INF/html/header.html" %>
 <main>
     <div class="container d-flex flex-column justify-content-start border-bottom p-2">
-        <%if (session.getAttribute("loggedin") != null && (boolean) session.getAttribute("loggedin")) {%>
-            <p>Félicitations vous êtes connectés (lol)</p>
-        <%} else {%>
         <h2>Ajouter un patient</h2>
+        <%if (session.getAttribute("loggedin") != null && (boolean) session.getAttribute("loggedin")) {%>
+        <form action="${pageContext.request.contextPath}/patient/add" method="post">
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Nom :</label>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Prénom :</label>
+                <input type="password" class="form-control" id="firstName" name="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Téléphone :</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="birthDate" class="form-label">Téléphone :</label>
+                <input type="date" class="form-control" id="birthDate" name="birthDate">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+            <button type="reset" class="btn btn-primary">Réinitialiser</button>
+        </form>
+        <%} else {%>
         <a href="${pageContext.request.contextPath}/login/form" class="btn btn-primary bg-primary">Se connecter</a>
         <%}%>
     </div>

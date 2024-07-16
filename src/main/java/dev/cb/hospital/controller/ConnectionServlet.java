@@ -35,9 +35,9 @@ public class ConnectionServlet extends HttpServlet {
         String password = req.getParameter("password");
         // TODO replace with DB connection
         if (username.equals("admin") && password.equals("admin")) {
-            HttpSession session = req.getSession();
-            session.setAttribute("loggedin", true);
+            req.getSession().setAttribute("loggedin", true);
         }
+        // TODO handle else
 
         resp.sendRedirect("../patient/list");
     }
