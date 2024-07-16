@@ -7,7 +7,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,11 +18,19 @@ import java.util.Optional;
 @WebServlet(name = "patientServlet", value = "/patient/*")
 public class PatientServlet extends HttpServlet {
 
+    public static final String IMAGES_FOLDER = "/images";
+
     private PatientService patientService;
+    private String uploadPath;
 
     @Override
     public void init() {
         patientService = new PatientService();
+        uploadPath = getServletContext().getRealPath(IMAGES_FOLDER);
+        File uploadDir = new File( uploadPath );
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
     }
 
     @Override
@@ -45,10 +55,17 @@ public class PatientServlet extends HttpServlet {
         String firstName = req.getParameter("firstName");
         String phoneNumber = req.getParameter("phoneNumber");
         LocalDate birthDate = LocalDate.parse(req.getParameter("birthDate"));
+        //TODO finish upload picture
+//        Byte[] picture = getPicture(req, resp);
         Patient patient = new Patient(lastName, firstName, phoneNumber, birthDate);
         patientService.save(patient);
         resp.sendRedirect("list");
     }
+
+    //TODO finish upload picture
+//    private Byte[] getPicture(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        Part picture = req.getPart("image");
+//    }
 
     private void forwardList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Patient> patients = patientService.getAll();

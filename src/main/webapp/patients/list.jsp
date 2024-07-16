@@ -13,7 +13,7 @@
     <div class="container d-flex flex-column justify-content-start border-bottom p-2">
         <h2>Ajouter un patient</h2>
         <%if (session.getAttribute("loggedin") != null && (boolean) session.getAttribute("loggedin")) {%>
-        <form action="${pageContext.request.contextPath}/patient/add" method="post">
+        <form action="${pageContext.request.contextPath}/patient/add" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="lastName" class="form-label">Nom :</label>
                 <input type="text" class="form-control" id="lastName" name="lastName">
@@ -29,6 +29,10 @@
             <div class="mb-3">
                 <label for="birthDate" class="form-label">Téléphone :</label>
                 <input type="date" class="form-control" id="birthDate" name="birthDate">
+            </div>
+            <div class="mb-3">
+                <label for="picture" class="form-label">Photo :</label>
+                <input type="file" class="form-control" id="picture" accept="image/*" name="picture">
             </div>
             <button type="submit" class="btn btn-primary">Valider</button>
             <button type="reset" class="btn btn-primary">Réinitialiser</button>

@@ -17,6 +17,7 @@ public class Patient {
     private String firstName;
     private String phoneNumber;
     private LocalDate birthDate;
+    private Byte[] picture;
     // TODO picture field
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -33,11 +34,20 @@ public class Patient {
         this.birthDate = birthDate;
     }
 
+    public Patient(String lastName, String firstName, String phoneNumber, LocalDate birthDate, Byte[] picture) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+        this.picture = picture;
+    }
+
     public void update(Patient patient) {
         this.setLastName(patient.getLastName());
         this.setFirstName(patient.getFirstName());
         this.setPhoneNumber(patient.getPhoneNumber());
         this.setBirthDate(patient.getBirthDate());
+        this.setPicture(patient.getPicture());
         this.setConsultations(patient.getConsultations());
     }
 
@@ -75,6 +85,14 @@ public class Patient {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Byte[] picture) {
+        this.picture = picture;
     }
 
     public List<Consultation> getConsultations() {
