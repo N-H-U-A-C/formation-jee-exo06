@@ -3,6 +3,7 @@ package dev.cb.hospital.controller;
 import dev.cb.hospital.business.model.Patient;
 import dev.cb.hospital.business.service.PatientService;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,9 +17,12 @@ import java.util.List;
 import java.util.Optional;
 
 @WebServlet(name = "patientServlet", value = "/patient/*")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024,
+        maxFileSize = 1024 * 1024 * 5,
+        maxRequestSize = 1024 * 1024 * 5 * 5)
 public class PatientServlet extends HttpServlet {
 
-    public static final String IMAGES_FOLDER = "/images";
+    public static final String IMAGES_DIRECTORY = "/images";
 
     private PatientService patientService;
     private String uploadPath;
@@ -26,8 +30,8 @@ public class PatientServlet extends HttpServlet {
     @Override
     public void init() {
         patientService = new PatientService();
-        uploadPath = getServletContext().getRealPath(IMAGES_FOLDER);
-        File uploadDir = new File( uploadPath );
+        uploadPath = getServletContext().getRealPath("") + File.separator + IMAGES_DIRECTORY;
+        File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
         }
@@ -56,16 +60,20 @@ public class PatientServlet extends HttpServlet {
         String phoneNumber = req.getParameter("phoneNumber");
         LocalDate birthDate = LocalDate.parse(req.getParameter("birthDate"));
         //TODO finish upload picture
-//        Byte[] picture = getPicture(req, resp);
+        String picture = writePicture(req, resp);
         Patient patient = new Patient(lastName, firstName, phoneNumber, birthDate);
         patientService.save(patient);
         resp.sendRedirect("list");
     }
 
     //TODO finish upload picture
-//    private Byte[] getPicture(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Part picture = req.getPart("image");
-//    }
+    private String writePicture(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Part picture = req.getPart("image");
+        String fileName = picture.getSubmittedFileName();
+        String fullPath = uploadPath + File.separator + fileName;
+        picture.write(fullPath);
+        return fullPath;
+    }
 
     private void forwardList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Patient> patients = patientService.getAll();
